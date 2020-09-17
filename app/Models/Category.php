@@ -7,14 +7,16 @@ use Illuminate\Support\Str;
 
 class Category extends Model
 {
-    protected $guarded = [], $incrementing = false, $keyType = 'string';
+    protected $guarded = [], $keyType = 'string';
+
+    public $incrementing = false;
 
     protected static function boot()
     {
         parent::boot();
 
         static::creating(function ($model) {
-            if (!$model->keyType) {
+            if (!$model->getKey()) {
                 $model->{$model->getKeyName()} = (string) Str::uuid();
             }
         });

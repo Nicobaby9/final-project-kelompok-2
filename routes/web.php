@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,10 +13,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('cat', 'CategoryController')->except('create', 'edit');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/{any?}', function () {
+    return view('layouts.app');
+});

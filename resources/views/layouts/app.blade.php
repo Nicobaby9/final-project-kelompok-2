@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <navigation/>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -73,6 +73,7 @@
         </nav>
 
         <main class="py-4">
+            <router-view></router-view>
             @yield('content')
         </main>
     </div>

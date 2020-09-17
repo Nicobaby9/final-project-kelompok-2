@@ -16,14 +16,14 @@ use Illuminate\Support\Facades\Auth;
 Route::resource('cat', 'CategoryController')->except('create', 'edit');
 Route::resource('prod', 'ProductController')->except('create', 'edit');
 
+Route::middleware('auth')->namespace('Chat')->group(function () {
+	// Route::view('/chat', 'chat.index');
+	Route::get('/chat/all-chats', 'ChatController@allChats');
+	Route::post('/chat/new', 'ChatController@store');
+});
+
 Auth::routes();
 
 Route::get('/{any?}', function () {
-    return view('layouts.app');
-});
-
-Route::middleware('auth')->namespace('Chat')->group(function() {
-	Route::view('/chat', 'chat.index');
-	Route::get('/chat/all-chats', 'ChatController@allChats');
-	Route::post('/chat/new', 'ChatController@store');
+	return view('layouts.app');
 });

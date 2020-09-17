@@ -27,7 +27,8 @@ class ChatStoredEvent implements ShouldBroadcast
         $this->chat = $chat;
     }
 
-    public function broadcastWith() {
+    public function broadcastWith()
+    {
         return [
             'data' => $this->chat->load(['user'])
         ];

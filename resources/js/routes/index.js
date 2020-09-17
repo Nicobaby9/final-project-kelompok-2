@@ -6,6 +6,8 @@ import createProduct from '../views/Products/CreateProduct'
 import product from '../views/Products/Product'
 import editProduct from '../views/Products/EditProduct'
 
+import Chat from '../views/Chat'
+
 
 const routes = [{
         path: '/category',
@@ -35,6 +37,11 @@ const routes = [{
         path: '/products/edit/:id',
         name: 'editProd',
         component: editProduct
+    },
+    {
+        path: '/chat',
+        name: 'chat',
+        component: Chat
     },
 ]
 

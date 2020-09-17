@@ -7,7 +7,7 @@
       <router-link class="nav-link" :to="{ name: 'products'}">Product</router-link>
     </li>
     <li class="nav-item">
-      <a href="/chat" class="nav-link">Chat with Admin</a>
+      <router-link class="nav-link" :to="{ name: 'chat'}">Chat with Admin</router-link>
     </li>
   </div>
 </template>

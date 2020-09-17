@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Broadcast;
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -13,7 +14,7 @@
 
 Broadcast::channel('chat-channel', function ($user) {
     return [
-    	'id' => $user->id,
-    	'name' => $user->name,
+        'id' => $user->id,
+        'name' => $user->name,
     ];
 });

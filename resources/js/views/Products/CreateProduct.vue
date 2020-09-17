@@ -23,14 +23,6 @@
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label text-md-right">
-            <i class="fas fa-space-shuttle text-dark">Stock</i>
-          </label>
-          <div class="col-md- 6">
-            <input type="number" min="0" v-model="form.stock" class="form-control" required />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-md-2 col-form-label text-md-right">
             <i class="fas fa-space-shuttle text-dark">Product Price</i>
           </label>
           <div class="col-md- 6">
@@ -69,7 +61,6 @@ export default {
       form: {
         name: null,
         description: null,
-        stock: null,
         price: null,
         category_id: null,
       },

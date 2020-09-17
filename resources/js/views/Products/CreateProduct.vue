@@ -2,12 +2,12 @@
   <div class="container">
     <form @submit.prevent="submit">
       <div class="card-header">
-        <i class="fas fa-plus-circle">Add Product</i>
+        <i class="fas fa-plus-circle text-dark">Add Product</i>
       </div>
       <div class="card-body">
         <div class="form-group row">
           <label class="col-md-2 col-form-label text-md-right">
-            <i class="fas fa-space-shuttle">Product Name</i>
+            <i class="fas fa-space-shuttle text-dark">Product Name</i>
           </label>
           <div class="col-md- 6">
             <input type="text" v-model="form.name" class="form-control" required />
@@ -15,7 +15,7 @@
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label text-md-right">
-            <i class="fas fa-space-shuttle">Product Description</i>
+            <i class="fas fa-space-shuttle text-dark">Product Description</i>
           </label>
           <div class="col-md- 6">
             <textarea v-model="form.description" cols="30" class="form-control" required></textarea>
@@ -23,7 +23,7 @@
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label text-md-right">
-            <i class="fas fa-space-shuttle">Product Price</i>
+            <i class="fas fa-space-shuttle text-dark">Product Price</i>
           </label>
           <div class="col-md- 6">
             <input type="number" min="0" v-model="form.price" class="form-control" required />
@@ -31,7 +31,7 @@
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label text-md-right">
-            <i class="fas fa-space-shuttle">Category</i>
+            <i class="fas fa-space-shuttle text-dark">Category</i>
           </label>
           <div class="col-md- 6">
             <select v-model="form.category_id" class="form-control" required>

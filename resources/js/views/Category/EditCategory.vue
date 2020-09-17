@@ -2,12 +2,12 @@
   <div class="container">
     <form @submit.prevent="submit">
       <div class="card-header">
-        <i class="fas fa-plus-circle">Add Category</i>
+        <i class="fas fa-plus-circle text-dark">Add Category</i>
       </div>
       <div class="card-body">
         <div class="form-group row">
           <label class="col-md-2 col-form-label text-md-right">
-            <i class="fas fa-space-shuttle">Category Name</i>
+            <i class="fas fa-space-shuttle text-dark">Category Name</i>
           </label>
           <div class="col-md- 6">
             <input type="text" v-model="form.name" class="form-control" required />
@@ -15,7 +15,7 @@
         </div>
         <div class="form-group row">
           <label class="col-md-2 col-form-label text-md-right">
-            <i class="fas fa-space-shuttle">Category Description</i>
+            <i class="fas fa-space-shuttle text-dark">Category Description</i>
           </label>
           <div class="col-md- 6">
             <textarea v-model="form.description" cols="30" class="form-control" required></textarea>

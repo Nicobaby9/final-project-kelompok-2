@@ -63,7 +63,7 @@ export default {
 
     destroy(id) {
       axios
-        .delete(`prod/${id}`)
+        .delete(`/prod/${id}`)
         .then((response) => this.Product())
         .catch((error) => {
           console.log(error);

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="card-header">
+      <div class="card-header text-dark">
         List Categories
         <router-link class="btn btn-md btn-primary float-right" :to="{name: 'createCat'}">Create</router-link>
       </div>
@@ -59,7 +59,7 @@ export default {
 
     destroy(id) {
       axios
-        .delete(`cat/${id}`)
+        .delete(`/cat/${id}`)
         .then((response) => this.Category())
         .catch((error) => {
           console.log(error);

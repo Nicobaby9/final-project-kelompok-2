@@ -8,33 +8,35 @@ import editProduct from '../views/Products/EditProduct'
 
 import Chat from '../views/Chat'
 
+import allProduct from '../views/user/product/allProduct'
+
 
 const routes = [{
-        path: '/category',
+        path: '/admin/category',
         name: 'category',
         component: category
     }, {
-        path: '/category/create',
+        path: '/admin/category/create',
         name: 'createCat',
         component: createCategory
     },
     {
-        path: '/category/edit/:id',
+        path: '/admin/category/edit/:id',
         name: 'editCat',
         component: editCategory
     },
     {
-        path: '/products',
+        path: '/admin/products',
         name: 'products',
         component: product
     },
     {
-        path: '/products/create',
+        path: '/admin/products/create',
         name: 'createProd',
         component: createProduct
     },
     {
-        path: '/products/edit/:id',
+        path: '/admin/products/edit/:id',
         name: 'editProd',
         component: editProduct
     },
@@ -43,6 +45,13 @@ const routes = [{
         name: 'chat',
         component: Chat
     },
+    // User
+    {
+        path: '/products',
+        name: 'allProducts',
+        component: allProduct
+    },
+
 ]
 
 export default {

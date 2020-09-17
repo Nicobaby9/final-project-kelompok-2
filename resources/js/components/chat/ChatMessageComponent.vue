@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import BusEvent from "../bus.js";
+import BusEvent from "../bus";
 
 export default {
   data() {

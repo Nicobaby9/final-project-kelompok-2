@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import BusEvent from "../../components/bus";
 export default {
   data() {
     return {
@@ -48,6 +49,9 @@ export default {
   },
   mounted() {
     this.Product();
+    BusEvent.$on("stock-update", (newProds) => {
+      this.prods = newProds;
+    });
   },
   methods: {
     Product() {

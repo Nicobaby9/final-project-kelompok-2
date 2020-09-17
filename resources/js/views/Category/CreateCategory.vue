@@ -10,7 +10,7 @@
             <i class="fas fa-space-shuttle">Category Name</i>
           </label>
           <div class="col-md- 6">
-            <input type="text" v-model="form.name" class="form-control" />
+            <input type="text" v-model="form.name" class="form-control" required />
           </div>
         </div>
         <div class="form-group row">
@@ -18,7 +18,7 @@
             <i class="fas fa-space-shuttle">Category Description</i>
           </label>
           <div class="col-md- 6">
-            <textarea v-model="form.description" cols="30" class="form-control"></textarea>
+            <textarea v-model="form.description" cols="30" class="form-control" required></textarea>
           </div>
         </div>
         <div class="form-group row mb-0">

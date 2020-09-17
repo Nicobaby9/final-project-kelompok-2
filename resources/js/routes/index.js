@@ -2,6 +2,10 @@ import createCategory from '../views/Category/CreateCategory'
 import category from '../views/Category/Category'
 import editCategory from '../views/Category/EditCategory'
 
+import createProduct from '../views/Products/CreateProduct'
+import product from '../views/Products/Product'
+import editProduct from '../views/Products/EditProduct'
+
 
 const routes = [{
         path: '/category',
@@ -16,7 +20,22 @@ const routes = [{
         path: '/category/edit/:id',
         name: 'editCat',
         component: editCategory
-    }
+    },
+    {
+        path: '/products',
+        name: 'products',
+        component: product
+    },
+    {
+        path: '/products/create',
+        name: 'createProd',
+        component: createProduct
+    },
+    {
+        path: '/products/edit/:id',
+        name: 'editProd',
+        component: editProduct
+    },
 ]
 
 export default {

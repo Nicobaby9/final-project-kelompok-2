@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::resource('cat', 'CategoryController')->except('create', 'edit');
+Route::resource('prod', 'ProductController')->except('create', 'edit');
 
 Auth::routes();
 

@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use App\Models\Product;
+use App\Models\Category;
 
-class Category extends Model
+class Product extends Model
 {
     protected $guarded = [], $keyType = 'string';
 
@@ -25,8 +25,8 @@ class Category extends Model
 
     // Relathionship
 
-    public function products()
+    public function category()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Category::class);
     }
 }

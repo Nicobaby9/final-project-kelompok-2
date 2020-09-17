@@ -24,6 +24,10 @@ Vue.use(VueRouter)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('navigation', require('./components/navigation.vue').default);
+Vue.component('chat-box-component', require('./components/chat/ChatBoxComponent.vue').default);
+Vue.component('chat-user-list-component', require('./components/chat/ChatUserListComponent.vue').default);
+Vue.component('chat-form-component', require('./components/chat/ChatFormComponent.vue').default);
+Vue.component('chat-message-component', require('./components/chat/ChatMessageComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

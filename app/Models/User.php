@@ -7,10 +7,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use App\Models\Chat;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, LogsActivity;
+
+    protected static $logAttributes = ['name', 'email'];
 
     protected static function boot() {
         parent::boot();

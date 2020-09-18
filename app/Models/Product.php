@@ -5,12 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use App\Models\Category;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Product extends Model
 {
     protected $guarded = [], $keyType = 'string';
 
     public $incrementing = false;
+
+    use LogsActivity;
+
+    protected static $logAttributes = ['name', 'description', 'price', 'category_id'];
 
     protected static function boot()
     {

@@ -4,10 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use App\Models\Product;
+use App\Models\{Product, LogActivity};
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Category extends Model
 {
+    use LogsActivity;
+
+    protected static $logAttributes = ['name', 'description'];
+    
     protected $guarded = [], $keyType = 'string';
 
     public $incrementing = false;

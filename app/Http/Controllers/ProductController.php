@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'roles:0'])->except('index');
+    }
+
     public function index()
     {
         return Product::with('category')->orderBy('name')->get();

@@ -47,7 +47,7 @@ const routes = [{
     },
     // User
     {
-        path: '/products',
+        path: '/',
         name: 'allProducts',
         component: allProduct
     },

@@ -25,6 +25,7 @@ Vue.use(VueRouter)
 
 Vue.component('navigation', require('./components/navigation.vue').default);
 Vue.component('chat-nav', require('./components/nav-chat.vue').default);
+Vue.component('cart-nav', require('./components/cart-nav.vue').default);
 Vue.component('chat-box-component', require('./components/chat/ChatBoxComponent.vue').default);
 Vue.component('chat-user-list-component', require('./components/chat/ChatUserListComponent.vue').default);
 Vue.component('chat-form-component', require('./components/chat/ChatFormComponent.vue').default);

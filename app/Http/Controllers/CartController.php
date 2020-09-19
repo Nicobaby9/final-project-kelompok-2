@@ -8,6 +8,11 @@ use App\Models\Cart;
 
 class CartController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return Cart::with('product')->where('user_id', Auth::id())->get();

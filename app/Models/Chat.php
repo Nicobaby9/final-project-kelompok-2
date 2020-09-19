@@ -5,21 +5,27 @@ namespace App\Models;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Chat extends Model
 {
-	protected $guarded = [];
+    protected $guarded = [];
 
-    protected static function boot() {
-    	parent::boot();
+    use LogsActivity;
+
+    protected static $logAttributes = ['subject', 'user_id'];
+
+    protected static function boot()
+    {
+        parent::boot();
         static::creating(function ($model) {
-            if ( ! $model->getKey()) {
+            if (!$model->getKey()) {
                 $model->{$model->getKeyName()} = (string) Str::uuid();
             }
         });
     }
 
-     /**
+    /**
      * Get the value indicating whether the IDs are incrementing.
      *
      * @return bool
@@ -39,7 +45,8 @@ class Chat extends Model
         return 'string';
     }
 
-    public function user() {
-    	return $this->belongsTo(User::class);
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

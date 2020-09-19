@@ -6,10 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use App\Models\Product;
 use App\Models\Order;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class OrderDetail extends Model
 {
     protected $guarded = [], $keyType = 'string';
+
+    use LogsActivity;
+
+    protected static $logAttributes = ['product_id', 'price', 'qty'];
 
     protected static function boot()
     {

@@ -2903,7 +2903,6 @@ __webpack_require__.r(__webpack_exports__);
         axios.post("/order/midtrans", {
           data: res.data
         }).then(function (response) {
-          console.log(response.data.data.token);
           snap.pay(response.data.data.token);
         });
       });
@@ -2958,12 +2957,28 @@ __webpack_require__.r(__webpack_exports__);
     axios.get("/prod").then(function (res) {
       return _this.products = res.data;
     });
+    var midtrans = document.createElement("script");
+    midtrans.setAttribute("src", "https://app.sandbox.midtrans.com/snap/snap.js");
+    midtrans.setAttribute("data-client-key", "SB-Mid-client-cX9qxpkQWBbjBIH4");
+    document.head.appendChild(midtrans);
   },
   methods: {
     addCart: function addCart(id, price) {
       axios.post("/cart", {
         id: id,
         prices: price
+      });
+    },
+    prosesM: function prosesM(prod, price) {
+      axios.post("/order", {
+        cart: prod,
+        total: price
+      }).then(function (res) {
+        axios.post("/order/midtrans", {
+          data: res.data
+        }).then(function (response) {
+          snap.pay(response.data.data.token);
+        });
       });
     }
   }
@@ -68240,9 +68255,18 @@ var render = function() {
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
-                _c("button", { staticClass: "btn btn-md btn-primary" }, [
-                  _vm._v("OrderNow")
-                ])
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-md btn-primary",
+                    on: {
+                      click: function($event) {
+                        return _vm.prosesM(prod.id, prod.price)
+                      }
+                    }
+                  },
+                  [_vm._v("OrderNow")]
+                )
               ]
             )
           }),

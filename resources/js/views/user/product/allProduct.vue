@@ -14,7 +14,7 @@
             <br />
             <button class="btn btn-sm btn-info" @click="addCart(prod.id, prod.price)">Add Cart</button>
             <br />
-            <button class="btn btn-md btn-primary">OrderNow</button>
+            <button class="btn btn-md btn-primary" @click="prosesM(prod.id, prod.price)">OrderNow</button>
           </div>
         </div>
       </div>
@@ -31,10 +31,24 @@ export default {
   },
   mounted() {
     axios.get(`/prod`).then((res) => (this.products = res.data));
+    let midtrans = document.createElement("script");
+    midtrans.setAttribute(
+      "src",
+      "https://app.sandbox.midtrans.com/snap/snap.js"
+    );
+    midtrans.setAttribute("data-client-key", "SB-Mid-client-cX9qxpkQWBbjBIH4");
+    document.head.appendChild(midtrans);
   },
   methods: {
     addCart(id, price) {
       axios.post(`/cart`, { id: id, prices: price });
+    },
+    prosesM(prod, price) {
+      axios.post(`/order`, { cart: prod, total: price }).then((res) => {
+        axios.post(`/order/midtrans`, { data: res.data }).then((response) => {
+          snap.pay(response.data.data.token);
+        });
+      });
     },
   },
 };

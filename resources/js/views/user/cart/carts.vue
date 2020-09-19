@@ -99,8 +99,6 @@ export default {
     proses(c, t) {
       axios.post(`/order`, { cart: c, total: t }).then((res) => {
         axios.post(`/order/midtrans`, { data: res.data }).then((response) => {
-          console.log(response.data.data.token);
-
           snap.pay(response.data.data.token);
         });
       });

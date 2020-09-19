@@ -26,17 +26,28 @@ class OrderController extends Controller
             'amount' => $data['total']
         ]);
 
-        for ($i = 0; $i < count($data['cart']); $i++) {
-            $cart = Cart::with('product')->where('id', $data['cart'][$i])->first();
+        if (is_array($data['cart'])) {
+
+            for ($i = 0; $i < count($data['cart']); $i++) {
+                $cart = Cart::with('product')->where('id', $data['cart'][$i])->first();
+                OrderDetail::create([
+                    'order_id' => $order->id,
+                    'product_id' => $cart->product->id,
+                    'price' => $cart->prices,
+                    'qty' => $cart->jumlah
+                ]);
+            }
+
+            Cart::destroy($data['cart']);
+        } else {
+
             OrderDetail::create([
                 'order_id' => $order->id,
-                'product_id' => $cart->product->id,
-                'price' => $cart->prices,
-                'qty' => $cart->jumlah
+                'product_id' => $data['cart'],
+                'price' => $data['total'],
+                'qty' => 1
             ]);
         }
-
-        Cart::destroy($data['cart']);
 
         $midtrans = [
             'transaction_details' => [

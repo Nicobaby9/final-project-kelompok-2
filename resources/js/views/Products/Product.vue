@@ -71,7 +71,6 @@ export default {
         .then((response) => this.Product())
         .catch((error) => {
           console.log(error);
-          this.errored = true;
         });
     },
   },

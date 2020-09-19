@@ -63,7 +63,6 @@ export default {
         .then((response) => this.Category())
         .catch((error) => {
           console.log(error);
-          this.errored = true;
         });
     },
   },

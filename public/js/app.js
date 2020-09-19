@@ -2214,7 +2214,6 @@ __webpack_require__.r(__webpack_exports__);
         return _this2.Category();
       })["catch"](function (error) {
         console.log(error);
-        _this2.errored = true;
       });
     }
   }
@@ -2497,7 +2496,6 @@ __webpack_require__.r(__webpack_exports__);
           name: "products"
         });
       })["catch"](function (error) {
-        console.log(_this2.form);
         console.log(error);
       });
     }
@@ -2606,7 +2604,6 @@ __webpack_require__.r(__webpack_exports__);
           name: "products"
         });
       })["catch"](function (error) {
-        console.log(_this2.form);
         console.log(error);
       });
     }
@@ -2698,7 +2695,6 @@ __webpack_require__.r(__webpack_exports__);
         return _this3.Product();
       })["catch"](function (error) {
         console.log(error);
-        _this3.errored = true;
       });
     }
   }
@@ -83090,7 +83086,7 @@ if (token) {
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: "9a35a3573d472d74f550",
+  key: "7abb73c1109384a10807",
   cluster: "ap1",
   encrypted: true
 });
@@ -84252,8 +84248,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\Laravel 2020\Laravel Lanjutan\RestaurantApp\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\Laravel 2020\Laravel Lanjutan\RestaurantApp\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\webdev\final-project-kelompok-2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\webdev\final-project-kelompok-2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

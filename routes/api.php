@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use Spatie\Activitylog\Models\Activity;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +16,3 @@ use Spatie\Activitylog\Models\Activity;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/logs', 'LogController@index');

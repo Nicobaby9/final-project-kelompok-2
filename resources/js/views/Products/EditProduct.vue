@@ -95,7 +95,6 @@ export default {
           this.$router.push({ name: "products" });
         })
         .catch((error) => {
-          console.log(this.form);
           console.log(error);
         });
     },

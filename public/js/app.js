@@ -2834,11 +2834,16 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       carts: [],
-      total: null
+      total: null,
+      cartid: null
     };
   },
   mounted: function mounted() {
     this.getCart();
+    var midtrans = document.createElement("script");
+    midtrans.setAttribute("src", "https://app.sandbox.midtrans.com/snap/snap.js");
+    midtrans.setAttribute("data-client-key", "SB-Mid-client-cX9qxpkQWBbjBIH4");
+    document.head.appendChild(midtrans);
   },
   methods: {
     getCart: function getCart() {
@@ -2857,6 +2862,12 @@ __webpack_require__.r(__webpack_exports__);
           return product.price;
         });
 
+        var carti = _this.carts.map(function (_ref3) {
+          var id = _ref3.id;
+          return id;
+        });
+
+        _this.cartid = carti;
         var sum = 0;
 
         for (var i = 0; i < jum.length; i++) {
@@ -2882,6 +2893,19 @@ __webpack_require__.r(__webpack_exports__);
 
       axios["delete"]("/cart/".concat(id)).then(function (res) {
         _this3.getCart();
+      });
+    },
+    proses: function proses(c, t) {
+      axios.post("/order", {
+        cart: c,
+        total: t
+      }).then(function (res) {
+        axios.post("/order/midtrans", {
+          data: res.data
+        }).then(function (response) {
+          console.log(response.data.data.token);
+          snap.pay(response.data.data.token);
+        });
       });
     }
   }
@@ -68114,9 +68138,18 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("button", { staticClass: "btn btn-primary float-right" }, [
-            _vm._v("Proses")
-          ])
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary float-right",
+              on: {
+                click: function($event) {
+                  return _vm.proses(_vm.cartid, _vm.total)
+                }
+              }
+            },
+            [_vm._v("Proses")]
+          )
         ])
       ])
     ])
@@ -84218,7 +84251,7 @@ var routes = [{
   name: 'allProducts',
   component: _views_user_product_allProduct__WEBPACK_IMPORTED_MODULE_7__["default"]
 }, {
-  path: '/cart',
+  path: '/your-cart',
   name: 'userCart',
   component: _views_user_cart_carts__WEBPACK_IMPORTED_MODULE_9__["default"]
 }];

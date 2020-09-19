@@ -60,7 +60,7 @@ const routes = [{
         component: allProduct
     },
     {
-        path: '/cart',
+        path: '/your-cart',
         name: 'userCart',
         component: userCart
     },

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::resource('cat', 'CategoryController')->except('create', 'edit');
 Route::resource('prod', 'ProductController')->except('create', 'edit');
+Route::resource('log', 'LogController');
 
 Route::middleware('auth')->namespace('Chat')->group(function () {
 	// Route::view('/chat', 'chat.index');

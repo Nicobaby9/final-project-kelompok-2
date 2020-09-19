@@ -6,6 +6,9 @@
     <li class="nav-item">
       <router-link class="nav-link" :to="{ name: 'products'}">Product</router-link>
     </li>
+    <li class="nav-item">
+      <router-link class="nav-link" :to="{ name: 'log'}">Log Activity</router-link>
+    </li>
   </div>
 </template>
 <script>

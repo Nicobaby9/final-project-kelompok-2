@@ -10,7 +10,8 @@ import Chat from '../views/Chat'
 
 import allProduct from '../views/user/product/allProduct'
 
-
+import LogActivity from '../views/LogActivity'
+ 
 const routes = [{
         path: '/admin/category',
         name: 'category',
@@ -44,6 +45,11 @@ const routes = [{
         path: '/chat',
         name: 'chat',
         component: Chat
+    },
+    {
+        path: '/admin/logs',
+        name: 'log',
+        component: LogActivity
     },
     // User
     {

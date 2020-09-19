@@ -2211,11 +2211,9 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     destroy: function destroy(id) {
-      var _this2 = this;
-
       axios["delete"]("/cat/".concat(id)).then(function (response) {
-        return _this2.Category();
-      })["catch"](function (error) {
+        return console.log(response);
+      }, this.Category())["catch"](function (error) {
         console.log(error);
       });
     }
@@ -2448,11 +2446,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2469,19 +2462,8 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/log").then(function (response) {
         _this.logs = response.data;
-        console.log(_this.log);
       })["catch"](function (error) {
         console.log(error);
-      });
-    },
-    destroy: function destroy(id) {
-      var _this2 = this;
-
-      axios["delete"]("/log/".concat(id)).then(function (response) {
-        return _this2.Activity();
-      })["catch"](function (error) {
-        console.log(error);
-        _this2.errored = true;
       });
     }
   }
@@ -67152,8 +67134,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-header" }, [
-        _vm._v("\n      Log Activity\n    ")
+      _c("div", { staticClass: "card-header text-dark" }, [
+        _vm._v("Log Activity")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
@@ -67164,7 +67146,9 @@ var render = function() {
             "tbody",
             _vm._l(_vm.logs, function(log, key) {
               return _c("tr", { key: key }, [
-                _c("td", [_vm._v(_vm._s(log.id))]),
+                _c("td", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(key + 1))
+                ]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(log.log_name))]),
                 _vm._v(" "),
@@ -67176,21 +67160,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(log.created_at))]),
                 _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-sm btn-danger",
-                      attrs: { small: "" },
-                      on: {
-                        click: function($event) {
-                          return _vm.destroy(log.id)
-                        }
-                      }
-                    },
-                    [_vm._v("Delete")]
-                  )
-                ])
+                _c("td", [_vm._v(_vm._s(log.id))])
               ])
             }),
             0
@@ -67207,7 +67177,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Id")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("No")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Log Name")]),
         _vm._v(" "),
@@ -67219,7 +67189,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Created At")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")])
       ])
     ])
   }
@@ -83282,7 +83252,7 @@ if (token) {
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: "9a35a3573d472d74f550",
+  key: "7abb73c1109384a10807",
   cluster: "ap1",
   encrypted: true
 });
@@ -84519,8 +84489,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\Laravel 2020\Laravel Lanjutan\RestaurantApp\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\Laravel 2020\Laravel Lanjutan\RestaurantApp\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\webdev\final-project-kelompok-2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\webdev\final-project-kelompok-2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

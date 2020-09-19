@@ -60,7 +60,7 @@ export default {
     destroy(id) {
       axios
         .delete(`/cat/${id}`)
-        .then((response) => this.Category())
+        .then((response) => console.log(response), this.Category())
         .catch((error) => {
           console.log(error);
         });
